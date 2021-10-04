@@ -65,3 +65,23 @@ def print_number(num):
 
 print_number(int(input("Enter the number you wish to display: ")))
 
+# LAB: 2.5.1.7 Palindromes
+#This lab takes a text and checks if its a palindromes, meaning if the the text was reversed would it spell out the same word(s)
+def palindrome(string):
+	list = []
+	new_string = string.upper() # 1. Create a new string and turns the input text to all uppercase
+	new_string = new_string.replace(" ", "") # 2. Removes all white space
+	for i in range(len(new_string)): # 3. Iterates through the string
+		list.insert(0, new_string[i]) # 4. Adds each character into a list in reverse order - through insert
+
+	reversed_str = "".join(list) # 5. Converts the list back into a string
+
+	if new_string == "": # 6. If the original list is empty, It's not a palindrome
+		print("It's not a palindrome")
+	elif reversed_str == new_string: # 7. Compares the two formatted strings if a match, It's a palindrome
+		print("It's a palindrome")
+	else: # If both fail send a message back, It's not a palindrome
+		print("It's not a palindrome")
+
+palindrome("Eleven animals I slam in a net")
+palindrome("Ten animals I slam in a net")
