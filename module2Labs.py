@@ -100,16 +100,22 @@ else:
 
 # LAB: 2.5.1.8 LAB: Anagrams
 
-def anogram(a,b):
+def anagram(a,b):
     c = ""
-    for i in a:
-        print(i)
-        if i not in b:
-            print("Not an anogram")
-            break
+    new_a = a.strip()
+    new_b = b.strip()
+    not_anagram = "Not anagrams!"
+    is_anagram = "Are anagrams!"
+    for i in new_a.lower():
+        if i not in new_b.lower():
+            return not_anagram
         else:
             c += i
-    if len(c) == len(b):
-        print("is an anogram")
+    if len(c) == len(new_b):
+        return is_anagram
+    else:
+        return not_anagram
 
-print(anogram("not", "ton"))
+print(anagram("Listen ", "Silent"))
+
+
