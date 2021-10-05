@@ -86,7 +86,7 @@ def palindrome(string):
 palindrome("Eleven animals I slam in a net")
 palindrome("Ten animals I slam in a net")
 
-# DCs solution!
+# DSs solution!
 text = input("Enter text: ")
 
 # remove all spaces...
@@ -118,4 +118,34 @@ def anagram(a,b):
 
 print(anagram("Listen ", "Silent"))
 
+# DS's SOLUTION !
+str_1 = input("Enter the first string: ")
+str_2 = input("Enter the second string: ")
 
+strx_1 = ''.join(sorted(list(str_1.upper().replace(' ',''))))
+strx_2 = ''.join(sorted(list(str_2.upper().replace(' ',''))))
+if len(strx_1) > 0 and strx_1 == strx_2:
+	print("Anagrams")
+else:
+	print("Not anagrams")
+
+# LAB: 2.5.1.9 The Digit of Life:
+# Some say that the Digit of Life is a digit evaluated using somebody's birthday.
+# It's simple - you just need to sum all the digits of the date.
+# If the result contains more than one digit, you have to repeat the addition until you get exactly one digit.
+# For example:
+# 1 January 2017 = 2017 01 01
+# 2 + 0 + 1 + 7 + 0 + 1 + 0 + 1 = 12
+# 1 + 2 = 3
+bday = input("Please enter your bday in YYYYMMDD: ")
+x = 0
+repeat = True
+while repeat:
+    for i in bday:
+        x += int(i)
+    bday = str(x)
+    if len(bday) > 1:
+        x = 0
+    else:
+        print(bday)
+        repeat = False
