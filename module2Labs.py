@@ -149,3 +149,55 @@ while repeat:
     else:
         print(bday)
         repeat = False
+
+# DSs SOLUTION:
+date = input("Enter your birthday date (in the following format: YYYYMMDD or YYYYDDMM, 8 digits): ")
+if len(date) != 8 or not date.isdigit():
+    print("Invalid date format.")
+else:
+    while len(date) > 1:
+        the_sum = 0
+        for dig in date:
+            the_sum += int(dig)
+        print(date)
+        date = str(the_sum)
+    print("Your Digit of Life is: " + date)
+
+bday = input("Please enter your bday in YYYYMMDD: ")
+
+# LAB: 2.5.1.10 LAB: Find a word!
+# Find the characters for a given word in a text of strings
+# If there is a complete match print a message if there is a match print an appropriate message.
+def find_a_word(word, text):
+	count = ""
+	for chr in word.upper():
+		if text.upper().find(chr) == -1:
+			break
+		else:
+			count += chr
+	if count == word.upper():
+		print("Word found!")
+	else:
+		print("Word not found")
+
+find_a_word("donor", "Nabucodonosor")
+find_a_word("donut", "Nabucodonosor")
+
+# DS's SOLUTION:
+word = input("Enter the word you wish to find: ").upper()
+strn = input("Enter the string you wish to search through: ").upper()
+
+found = True
+start = 0
+
+for ch in word:
+	pos = strn.find(ch, start)
+	if pos < 0:
+		found = False
+		break
+	start = pos + 1
+if found:
+	print("Yes")
+else:
+	print("No")
+
