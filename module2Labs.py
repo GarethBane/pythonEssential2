@@ -66,7 +66,7 @@ def print_number(num):
 print_number(int(input("Enter the number you wish to display: ")))
 
 # LAB: 2.5.1.7 Palindromes
-#This lab takes a text and checks if its a palindromes, meaning if the the text was reversed would it spell out the same word(s)
+#This lab takes a text and checks if its a palindromes, meaning if the text was reversed would it spell out the same word(s)
 def palindrome(string):
 	list = []
 	new_string = string.upper() # 1. Create a new string and turns the input text to all uppercase
@@ -85,3 +85,31 @@ def palindrome(string):
 
 palindrome("Eleven animals I slam in a net")
 palindrome("Ten animals I slam in a net")
+
+# DCs solution!
+text = input("Enter text: ")
+
+# remove all spaces...
+text = text.replace(' ','')
+
+# ... and check if the word is equal to reversed itself
+if len(text) > 1 and text.upper() == text[::-1].upper():
+	print("It's a palindrome")
+else:
+	print("It's not a palindrome")
+
+# LAB: 2.5.1.8 LAB: Anagrams
+
+def anogram(a,b):
+    c = ""
+    for i in a:
+        print(i)
+        if i not in b:
+            print("Not an anogram")
+            break
+        else:
+            c += i
+    if len(c) == len(b):
+        print("is an anogram")
+
+print(anogram("not", "ton"))
