@@ -222,3 +222,63 @@ def read_int(prompt, min, max):
 v = read_int("Enter a number from -10 to 10: ", -10, 10)
 
 print("The number is:", v)
+
+# LAB: 3.2.1.14 Counting stack
+class Stack:
+    def __init__(self):
+        self.__stk = []
+
+    def push(self, val):
+        self.__stk.append(val)
+
+    def pop(self):
+        val = self.__stk[-1]
+        del self.__stk[-1]
+        return val
+
+class CountingStack(Stack):
+    def __init__(self):
+        Stack.__init__(self)
+        self.__counter = 0
+
+    def get_counter(self):
+        return self.__counter
+
+    def pop(self):
+        self.__counter += 1
+        return Stack.pop(self)
+
+stk = CountingStack()
+for i in range(100):
+    stk.push(i)
+    stk.pop()
+print(stk.get_counter())
+
+# LAB: 3.2.1.15 Queue aka FIFO
+class QueueError(IndexError):
+    pass
+
+class Queue:
+    def __init__(self):
+        self.queue = []
+
+    def put(self, elem):
+        self.queue.insert(0, elem)
+
+    def get(self):
+        if len(self.queue) > 0:
+            elem = self.queue[-1]
+            del self.queue[-1]
+            return elem
+        else:
+            raise QueueError
+
+que = Queue()
+que.put(1)
+que.put("dog")
+que.put(False)
+try:
+    for i in range(4):
+        print(que.get())
+except:
+    print("Queue error")
